@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog class="stipAdminPersonDialog" horizontalScrolling="true" verticalScrolling="true" draggable="true" contentHeight="auto">
+		<VBox>
+			<Text text = "mantenere attiva la sessione ? "></Text>
+			<Button icon="sap-icon://accept" text="ok" press="TimeOutCloseOkay"/>
+			<Button icon="sap-icon://decline" text="no" id="noCloseButton" press="ChiudiTimeoutButton"/>
+		</VBox>
+	</Dialog>
+</core:FragmentDefinition>

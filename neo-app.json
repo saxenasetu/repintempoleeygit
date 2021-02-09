@@ -1,0 +1,69 @@
+{
+  "welcomeFile": "/index.html",
+  "routes": [
+    {
+      "path": "/HANAMDC",
+      "target": {
+        "type": "destination",
+        "name": "HANAMDC"
+      },
+      "description": "HANAMDC"
+    },
+    {
+      "path": "/email",
+      "target": {
+        "type": "destination",
+        "name": "send_Email"
+      },
+      "description": "Sending Email"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.85.1"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.85.1"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.85.1"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.85.1"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/services/userapi",
+      "target": {
+        "type": "service",
+        "name": "userapi"
+      }
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}

@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idSelectDiagCambioRespMgr" title="{i18n>SelectRespServizio}" class="sapUiPopupWithPadding" items="{RepintCambioRespMgrModel>/}" search="_handleValueHelpMgrSearch" 
+		confirm="_handleValueHelpMgrClose" cancel="_handleValueHelpMgrClose">
+		<StandardListItem title="{RepintCambioRespMgrModel>NOME_RESP} {RepintCambioRespMgrModel>COGNOME_RESP}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

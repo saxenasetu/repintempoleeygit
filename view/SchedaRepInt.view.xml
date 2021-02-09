@@ -1,0 +1,279 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	controllerName="REPINTEMPOLEEY.REPINTEMPOLEEY.controller.SchedaRepInt" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Repint Employee" showNavButton="true" navButtonPress="onPressRepintHome" titleAlignment="Center">
+				<content>
+					<f:SimpleForm id="idFormPostingDetails" minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2"
+						emptySpanL="0" emptySpanM="0" columnsL="1" columnsM="1">
+						<f:content>
+							<VBox>
+								<HBox class="repintemployeeSpaceItem">
+									<Label class="repintemployeeSpace12"  text="{i18n>AnnoMese}"/>
+									<DatePicker id="dpAnnoMese" class="sapUiTinyMargin repintemployeeSpaceControl" value="" displayFormat="MM-y" width="10rem"
+										change="handleAnnoMese"/>
+									<Label class="repintemployeeSpace1" text="{i18n>NomeeCognome}"/>
+									<Input class="repintemployeeSpaceControl1" value="{RepintEmpdataModel>/0/NOME} {RepintEmpdataModel>/0/COGNOME}" width="10rem"
+										enabled="false"/>
+									<Label class="repintemployeeSpace2"/>
+									<Label class="repintemployeeSpace12" text="{i18n>Matricola}"/>
+									<Input class="repintemployeeSpaceControl2" value="{RepintEmpdataModel>/0/MATRICOLA}" width="10rem" enabled="false"/>
+								</HBox>
+								<HBox>
+									<Label class="repintemployeeSpace12" text="{i18n>Livello}"/>
+									<Input class="repintemployeeSpaceControl3" value="{RepintEmpdataModel>/0/LIVELLO}" width="10rem" enabled="false"/>
+									<Label class="repintemployeeSpace8" text="{i18n>UnitàOrganizzativa}"/>
+									<Input class="repintemployeeSpaceControl12" value="{RepintEmpdataModel>/0/UNITAORGANIZZATIVA}" width="10rem" enabled="false"/>
+									<Label class="repintemployeeSpace3"/>
+									<Label class="repintemployeeSpace12" text="{i18n>CentrodiCosto}"/>
+									<Input class="repintemployeeSpaceControl4" value="{RepintEmpdataModel>/0/CDC}" width="10rem" enabled="false"/>
+									<Label class="repintemployeeSpace4"/>
+									<Label class="repintemployeeSpace12" text="{i18n>Stabilimento}"/>
+									<Input class="repintemployeeSpaceControl5" value="{RepintEmpdataModel>/0/STABILIMENTODESC}" width="10rem" enabled="false"/>
+								</HBox>
+								<HBox>
+									<Label class="repintemployeeSpace12" text="{i18n>RespServizio}"/>
+									<Input id="idLineMgr" class="repintemployeeSpaceControl6" value="{RepintEmpdataModel>/0/ManagerFirstName} {RepintEmpdataModel>/0/ManagerLastName}"
+										width="10rem" enabled="false"/>
+									<Label text="{i18n>DeputyMgr}" class="repintemployeeSpace5"/>
+									<Input id="idRepintCambioResp" valueHelpOnly="true" class="repintemployeeSpaceControl7" required="true" type="Text" width="10em"  showSuggestion="true"
+										showValueHelp="true" suggestionItems="{ path: 'RepintCambioRespModel>/', sorter: { path: 'NOME_DELEGATO' } }" value="" tooltip=""
+										valueHelpRequest="handleValueHelp" visible="true">
+										<suggestionItems>
+											<core:Item key="{RepintCambioRespModel>MATRICOLA_DEPUTY}"
+												text="{RepintCambioRespModel>NOME_DELEGATO}{RepintCambioRespModel>COGNOME_DELEGATO}"/>
+										</suggestionItems>
+									</Input>
+								</HBox>
+								<HBox>
+									<Label class="repintemployeeSpace6" text="{i18n>Approvazione1}"/>
+									<Text id="idApprovazione1" class="repintemployeeSpaceControl9" width="9rem" text="{RepintEmpHdrModel>/0/DATACREAZIONE}"/>
+									<Label id="idLblapp2" class="repintemployeeSpace7" text="{i18n>Approvazione2}"/>
+									<Text id="idApprovazione2" class="repintemployeeSpaceControl10" width="9rem" text="{RepintEmpHdrModel>/0/DATE_MANAGER}"/>
+									<Label id="idLblapp3" class="repintemployeeSpace9" text="{i18n>Approvazione3}"/>
+									<Text id="idApprovazione3" class="repintemployeeSpaceControl11" width="9rem" text="{RepintEmpHdrModel>/0/DATE_HR}"/>
+								</HBox>
+								<HBox>
+									<Label class="repintemployeeSpace6" text="{i18n>Status}"/>
+									<Text id="idStato" class="repintemployeeSpace11" width="15rem"/>
+									<Label id="idlblRejComment" class="repintemployeeSpace10" visible="false" text=""/>
+									<Text id="idRejComment" visible="false" class="repintemployeeSpace13" width="auto" text=""/>
+									<!--<TextArea id="idRejComment" visible="false" class="repintemployeeSpace13" maxLength="500" rows="8" width="100%"/>									-->
+								</HBox>
+								<HBox>
+									<Text id="idScheda" class="repintemployeeSpace6" text="{i18n>IDScheda} {RepintEmpHdrModel>/0/IDSCHEDA}"/>
+									<Button class="repintemployeeSpace6" text="{i18n>VisSoloReper}" type="Transparent" press="pressReperibilita"/>
+									<Button class="repintemployeeSpace6" text="{i18n>SoloInterventi}" type="Transparent" press="pressInterventi"/>
+									<Button class="repintemployeeSpace6" text="{i18n>ReperEInterventi}" type="Transparent" press="pressReperibilitaInterventi"/>
+								</HBox>
+							</VBox>
+						</f:content>
+					</f:SimpleForm>
+					<ScrollContainer width="100%" height="50%" vertical="true" horizontal="true" focusable="true">
+						<HBox>
+							<VBox class="repintemployeeGridVboxClass" id="idReperibilitaVBox">
+								<Table id="idTableReperibilita" inset="false" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders"
+								items="{RepintReperibilitaModel>/}" 
+								noDataText="{i18n>nodata}" width="30rem"
+									headerText="{i18n>Reperibilita}" growing="true" growingThreshold="50" growingScrollToLoad="true" mode="None">
+									<headerToolbar></headerToolbar>
+									<columns>
+										<Column minScreenWidth="Tablet" width="6rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Data}" class="fontBoldClass"/>
+											<footer>
+												<Text text="{i18n>Totale}"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="2rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Fer}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txtFer" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="2rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Sab}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txtSab" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="2rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Dom}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txtDom" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="2.7rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Aggiorna}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txtAggiorna" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="2.5rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Elimina}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txtElimina" text="0"/>
+											</footer>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<DatePicker change="handleDateChange" displayFormat="dd-MM-yyyy" valueFormat="dd-MM-yyyy" value="{RepintReperibilitaModel>DATAREPERIBILITA}"
+													maxDate="{RepintReperibilitaModel>minDate}" minDate="{RepintReperibilitaModel>maxDate}" navigate="navigateReperibilitaDate"/>
+												<CheckBox select="chkFer" selected="{RepintReperibilitaModel>Fer}" enabled="false"/>
+												<CheckBox select="chkSab" selected="{RepintReperibilitaModel>Sab}" enabled="false"/>
+												<CheckBox select="chkDom" selected="{RepintReperibilitaModel>Dom}" enabled="false"/>
+												<Button icon="sap-icon://sys-add" type="Emphasized" enabled="{RepintReperibilitaModel>oButton1}" press="onAddItems1"/>
+												<Button icon="sap-icon://sys-minus" type="Emphasized" enabled="{RepintReperibilitaModel>oButton2}" press="onDeleteCategory1"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</VBox>
+							<VBox class="repintemployeeGridVboxClass" id="idInterventiVBox">
+								<Table id="idTableInterventi" alternateRowColors="true" backgroundDesign="Solid" inset="false" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders"
+									items="{path: 'RepintInterventiModel>/', group : true}" noDataText="{i18n>nodata}" width="109rem" headerText="{i18n>Interventi}"
+									growing="true" growingThreshold="50" growingScrollToLoad="true" selectionChange="onRequestSelect" mode="None"
+									updateFinished="handleUpdateFinish">
+									<headerToolbar></headerToolbar>
+									<columns>
+										<Column minScreenWidth="Tablet" width="0rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>n}" class="fontBoldClass" visible="false"/>
+											<!--<footer>-->
+											<!--	<Text text="{i18n>Totale}"/>-->
+											<!--</footer>-->
+										</Column>
+										<Column minScreenWidth="Tablet" width="2rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Lpn}" class="fontBoldClass"/>
+										</Column>
+										<Column minScreenWidth="Tablet" width="4rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Data}" class="fontBoldClass"/>
+										</Column>
+										<Column minScreenWidth="Tablet" width="3rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>OraInizio}" class="fontBoldClass"/>
+										</Column>
+										<Column minScreenWidth="Tablet" width="3rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>OraFine}" class="fontBoldClass"/>
+										</Column>
+										<Column minScreenWidth="Tablet" width="5rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Chiamatoda}" class="fontBoldClass"/>
+										</Column>
+										<Column minScreenWidth="Tablet" width="5rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Chiamatodaaltro}" class="fontBoldClass"/>
+										</Column>										
+										<Column minScreenWidth="Tablet" width="2rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Rip}" class="fontBoldClass"/>
+										</Column>
+										<Column minScreenWidth="Tablet" width="5rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Causa}" class="fontBoldClass"/>
+										</Column>
+										<Column minScreenWidth="Tablet" width="2rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Riposi}" class="fontBoldClass"/>
+											<footer>
+												<Text text="{i18n>Totale}"/>
+											</footer>											
+										</Column>
+										<Column minScreenWidth="Tablet" width="1.8rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>1h}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txt1h" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="1.8rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>12h}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txt12h" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="1.8rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>24h}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txt24h" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="1.8rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>46h}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txt46h" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="1.8rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>68h}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txt68h" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="1.8rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>8h}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txt8h" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="2rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Aggiorna}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txtAggiorna1" text="0"/>
+											</footer>
+										</Column>
+										<Column minScreenWidth="Tablet" width="2rem" hAlign="Center" demandPopin="true">
+											<Text text="{i18n>Elimina}" class="fontBoldClass"/>
+											<footer>
+												<Text id="txtElimina1" text="0"/>
+											</footer>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{RepintInterventiModel>n}" visible="false" width="0rem"/>
+												<CheckBox enabled="false" selected="{RepintInterventiModel>FLAGNOTTURNO}"/>
+												<DatePicker change="handleInterventiDateChange" displayFormat="dd-MM-yyyy" valueFormat="dd-MM-yyyy"
+													value="{RepintInterventiModel>DATAINTERVENTO}" maxDate="{RepintInterventiModel>minDate}" minDate="{RepintInterventiModel>maxDate}"/>
+												<TimePicker id="tp1" valueFormat="HH:mm" displayFormat="HH:mm" change="tpChange1" placeholder="Enter Ora Inizio"
+													value="{RepintInterventiModel>ORAINIZIO}"/>
+												<TimePicker id="tp2" valueFormat="HH:mm" displayFormat="HH:mm" change="tpChange2" placeholder="Enter Ora Fine"
+													value="{RepintInterventiModel>ORAFINE}"/>
+												<Select id="idChiamatoda" change="onChiamatodaChange" forceSelection="false" textAlign="Begin" maxWidth="100%" selectedKey="{RepintInterventiModel>CHIAMATODA}">
+													<core:ListItem key="{i18n>NOC}" text="{i18n>NOC}"/>
+													<core:ListItem key="{i18n>LPN}" text="{i18n>LPN}"/>
+													<core:ListItem key="{i18n>NetworkGovernance}" text="{i18n>NetworkGovernance}"/>
+													<core:ListItem key="{i18n>LineManager}" text="{i18n>LineManager}"/>
+													<core:ListItem key="{i18n>FieldOperation}" text="{i18n>FieldOperation}"/>
+													<core:ListItem key="{i18n>VFGlobal}" text="{i18n>VFGlobal}"/>
+													<core:ListItem key="{i18n>OtherOpCo}" text="{i18n>OtherOpCo}"/>
+													<core:ListItem key="{i18n>Carrier}" text="{i18n>Carrier}"/>
+													<core:ListItem key="{i18n>Others}" text="{i18n>Others}"/>
+												</Select>
+												<Input value="{RepintInterventiModel>CHIAMATODA_ALTRO}" maxLength="50" enabled="true" liveChange="onEnterChaimatodaFreeTxt"/>
+												<CheckBox enabled="false"  selected="{RepintInterventiModel>FLAGCONT}"/>
+												<Input value="{RepintInterventiModel>CAUSA}"  required="true" maxLength="250" change="onEnterCausa"/>
+												<Text text="{RepintInterventiModel>RIPOSI}"/>
+												<CheckBox select="chk1h" enabled="false" selected="{RepintInterventiModel>h1h}"/>
+												<CheckBox select="chk12h" enabled="false" selected="{RepintInterventiModel>h12h}"/>
+												<CheckBox select="chk24h" enabled="false" selected="{RepintInterventiModel>h24h}"/>
+												<CheckBox select="chk46h" enabled="false" selected="{RepintInterventiModel>h46h}"/>
+												<CheckBox select="chk68h" enabled="false" selected="{RepintInterventiModel>h68h}"/>
+												<CheckBox select="chk8h" enabled="false" selected="{RepintInterventiModel>h8h}"/>
+												<Button icon="sap-icon://sys-add" type="Emphasized" enabled="{RepintInterventiModel>oButton1}" press="onAddItems2"/>
+												<Button icon="sap-icon://sys-minus" type="Emphasized" enabled="{RepintInterventiModel>oButton2}" press="onDeleteCategory2"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</VBox>
+						</HBox>
+					</ScrollContainer>
+				</content>
+				<footer>
+					<Toolbar >
+						<ToolbarSpacer/>
+						<!--<Button id="idButDeleteRefresh" type="Accept" text="{i18n>DeleteRefresh}" press="onDeleteRefresh"/>-->
+						<Button id="idButStornata" type="Accept" text="{i18n>Stornata}" press="handleStornata"/>
+						<Button id="idButCreate" type="Accept" text="{i18n>Salva}" press="handleCreate"/>
+						<Button id="idButDraft" type="Accept" text="{i18n>draft}" press="handleDraft" enabled="true"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

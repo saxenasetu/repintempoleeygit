@@ -1,0 +1,172 @@
+/* Enter your custom styles here */
+.inputwidth {
+	width : 50%!important;
+}
+.inputwidthOra {
+	width : 91%!important;
+}
+.formTitle1 .sapUiFormM .sapUiFormContainerTitle>.sapUiFormTitle {
+   display: none;
+} 
+
+.addButton {
+	    width: 21%!important;;
+        margin-left: 7rem!important;
+        float : right!important;
+}
+.minusButton {
+	    width: 21%!important;;
+        margin-left: 1rem!important;;
+}
+
+.VBoxItem1 {
+    border: #009de0 2px solid;
+    margin: 0 0 0.25rem 0;
+    padding: 0 0.25rem 0 0.25rem;
+}
+.VBoxItem2 {
+    border: #009de0 2px solid;
+    margin: 0 0 0.25rem 0;
+    padding: 0 0.25rem 0 0.25rem;
+}
+.VBoxItem3 {
+    border: #009de0 2px solid;
+    margin: 0 0 0.25rem 0;
+    padding: 0 0.25rem 0 0.25rem;
+}
+.mypage {
+	background-color: white !important;
+}
+.repintemployeeSpaceControl {
+ margin-left: 3.5rem!important;
+}
+.repintemployeeSpaceControl1 {
+ margin-left: 2.6rem!important;
+}
+.repintemployeeSpaceControl2 {
+ margin-left: 4rem!important;
+}
+.repintemployeeSpaceControl3 {
+ margin-left: 5.4rem!important;
+}
+.repintemployeeSpaceControl4 {
+ margin-left: 1.5rem!important;
+}
+.repintemployeeSpaceControl5 {
+ margin-left: 1.7rem!important;
+}
+.repintemployeeSpaceControl6 {
+ margin-left: 2.7rem!important;
+}
+.repintemployeeSpaceControl7 {
+ margin-left: 2rem!important;
+}
+.repintemployeeSpaceControl8 {
+ margin-left: 2rem!important;
+}
+.repintemployeeSpaceControl9 {
+ margin-top:  0.2rem!important;
+ margin-left: 0.2rem!important;
+}
+.repintemployeeSpaceControl10 {
+ margin-top:  0.2rem!important;
+ margin-left: 1rem!important;
+}
+.repintemployeeSpaceControl11 {
+ margin-left: 0.5rem!important;
+}
+.repintemployeeSpaceControl12 {
+ margin-left: 2.1rem!important;
+}
+.repintemployeeSpaceControl13 {
+ margin-top:  0.8rem!important;
+}
+.repintemployeeSpace1 {
+ margin-top:  0.8rem!important;
+ margin-left: 1.5rem!important;
+}
+.repintemployeeSpace12 {
+ margin-top:  0.8rem!important;
+}
+.repintemployeeSpace2 {
+ margin-left: 1.1rem!important;
+}
+.repintemployeeSpace3 {
+ margin-left: 1rem!important;
+}
+.repintemployeeSpace4 {
+ margin-top:  0.8rem!important;
+ margin-left: 1rem!important;
+}
+.repintemployeeSpace5 {
+ margin-top:  0.8rem!important;
+ margin-left: 2.1rem!important;
+}
+.repintemployeeSpace6 {
+ margin-top:  1rem!important;
+}
+.repintemployeeSpace7 {
+ margin-top:  1rem!important;
+ margin-left: 0.6rem!important;
+}
+.repintemployeeSpace8 {
+ margin-top:  0.8rem!important;
+ margin-left: 2rem!important;
+}
+
+.repintemployeeSpace9 {
+margin-top:  1rem!important;
+}
+
+.repintemployeeSpaceControl14 {
+margin-top:  1rem!important;
+margin-left: 2rem!important;
+}
+
+.repintemployeeSpace10 {
+ margin-top:  1.1rem!important;
+ margin-left: 2rem!important;
+}
+
+.repintemployeeSpace11 {
+ margin-top:  0.2rem!important;
+ margin-left: 1em!important;
+}
+
+.repintemployeeSpace13 {
+ margin-top:  0.2rem!important;
+ margin-left: 0.6rem!important;
+}
+
+.repintemployeeSpace3 {
+ margin-top:  0.8rem!important;
+ margin-left: 1rem!important;
+}
+.repintemployeeSpaceItem .sapMFlexBoxAlignItemsStretch {
+align-items: center;
+}
+/* 
+.sapMListTbl .sapMText,.sapMListTbl .sapMLabel {
+    font-size: 0.7rem;
+    color: #32363a;
+    font-weight: normal
+}
+ */
+.repintemployeeGrid .sapMListTblCell:not(:first-child) {
+  border-left: 1px solid #ccc;
+}
+
+.repintemployeeGridVboxClass {
+      
+        border-bottom: 1px solid rgba(121, 121, 121, 1);
+        border-top: 1px solid rgba(121, 121, 121, 1);
+        border-left: 1px solid rgba(121, 121, 121, 1);
+        border-right: 1px solid rgba(121, 121, 121, 1);
+   
+    }
+.repintemployeeText {
+  margin-top: 1rem;
+}
+.repintemployeeSpaceColumn {
+ margin-left: 0.5rem!important;
+}

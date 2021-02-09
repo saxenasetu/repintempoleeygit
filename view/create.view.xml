@@ -1,0 +1,78 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	controllerName="REPINTEMPOLEEY.REPINTEMPOLEEY.controller.create" xmlns:html="http://www.w3.org/1999/xhtml">
+
+			<Page class="mypage" showNavButton="true" navButtonPress="handleBack">
+				<content>
+					<VBox class="VBoxItem1">
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="5" labelSpanM="5" emptySpanL="0" emptySpanM="0"
+							columnsL="1" columnsM="1">
+							<f:content>
+								<Label text="{i18n>name}"/>
+								<Text text="Mario"/>
+								<Label text="{i18n>surname}"/>
+								<Text text="Rossi"></Text>
+								<Label text="{i18n>id}"/>
+								<Text text="204510"></Text>
+								<Label text="Employee id"/>
+								<Text id="txtId"></Text>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox >
+						<VBox width="100%" id="idVBoxCategory" class="VBoxItem3" items="{MainModel>/ItemsInfo}">
+							<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="0" emptySpanM="0"
+								columnsL="2" columnsM="2" class="formTitle1">
+								<f:content>
+									<Label text="{i18n>Data}"/>
+									<DatePicker placeholder="Enter Date ..." change="handleChange" class="inputwidth"/>
+									<Label text="{i18n>OraInizio}"/>
+									<TimePicker class="inputwidth" width="100%" placeholder="Enter Time ..."/>
+									<Label text="{i18n>OraFine}"/>
+									<TimePicker class="inputwidth" width="100%" placeholder="Enter Time ..."/>
+									<Label id="idwbs" text="{i18n>Hours}"/>
+									<Select class="inputwidth" change="onFlagChange" forceSelection="false">
+										<core:Item key="key1" text="1h"/>
+										<core:Item key="key2" text="1-2h"/>
+										<core:Item key="key3" text="2-4h"/>
+										<core:Item key="key4" text="4h"/>
+									</Select>
+									<Label text="{i18n>RemotoOnSite}"/>
+									<Select class="inputwidth" change="onFlagChange" forceSelection="false">
+										<core:Item key="key5" text="Remoto"/>
+										<core:Item key="key6" text="OnSite"/>
+									</Select>
+									<Label text="{i18n>Causa}"/>
+									<TextArea class="inputwidth" value="{MainModel>Value10}" maxLength="100"/>
+									<core:Title/>
+									<Label text="{i18n>Fer}"/>
+									<RadioButton groupName="GroupA" selected="{MainModel>Value2}"/>
+									<Button icon="sap-icon://sys-add" class="addButton" type="Emphasized" press="onAddItems" visible="{MainModel>bAdd}"/>
+									<Button icon="sap-icon://sys-minus" class="minusButton" type="Emphasized" press="onDeleteCategory" visible="{MainModel>bDelete}"/>
+									<Label text="{i18n>Sab}"/>
+									<RadioButton groupName="GroupA" selected="{MainModel>Value3}"/>
+									<Label text="{i18n>Dom}"/>
+									<RadioButton groupName="GroupA" selected="{MainModel>Value4}"/>
+									<Label text="{i18n>Rip}"/>
+									<CheckBox xmlns="sap.m" selected="true" editable="{MainModel>Value9}"/>
+									<Label text="{i18n>n}"/>
+									<Input class="inputwidth" value="{MainModel>Value5}"/>
+									<Label text="{i18n>Lpn}"/>
+									<Input class="inputwidth" value="{MainModel>Value6}"/>
+								</f:content>
+							</f:SimpleForm>
+						</VBox>
+					</VBox>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button type="Accept" text="{i18n>Entry}" press="handleEntry" enabled="true"/>
+						<Button type="Accept" text="{i18n>EntryDetail}" press="handleEntryDetail" enabled="true"/>
+						<Button type="Accept" text="{i18n>History}" press="handleHistory" enabled="true"/>
+						<Button type="Accept" text="{i18n>Insert}" press="handleSave" enabled="true"/>
+					
+					</Toolbar>
+				</footer>
+			</Page>
+	
+</mvc:View>

@@ -1,0 +1,131 @@
+<mvc:View controllerName="REPINTEMPOLEEY.REPINTEMPOLEEY.controller.History" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Page showNavButton="true" title="List of Request" titleAlignment="Center" navButtonPress="handleBack">
+		<content>
+			<Table id="idTableHistory" inset="false" items="{/History}" noDataText="{i18n>nodata}" width="auto" class="sapUiSmallMarginTopBottom"
+				growing="true" growingThreshold="1000" growingScrollToLoad="true" selectionChange="onRequestSelect" mode="None"
+				updateFinished="handleUpdateFinish">
+				<headerToolbar></headerToolbar>
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Data}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Fer}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Sab}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Dom}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>n}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Lpn}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>OraInizio}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>OraFine}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Rip}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Causa}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>RemotoOnSite}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Status}" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="" class="fontBoldClass"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="" class="fontBoldClass"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem >
+						<cells>
+							<HBox>
+								<Input type="Text" value="{Data}" editable="false" visible="false"/>
+								<Text text="{Data}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{Fer}" editable="false" visible="false"/>
+								<Text text="{Fer}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{Sab}" editable="false" visible="false"/>
+								<Text text="{Sab}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{Dom}" editable="false" visible="false"/>
+								<Text text="{Dom}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{n}" editable="false" visible="false"/>
+								<Text text="{n}"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{Lpn}" editable="false" visible="false"/>
+								<Text text="{Lpn}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{OraInizio}" editable="false" visible="false"/>
+								<Text text="{OraInizio}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{OraFine}" editable="false" visible="false"/>
+								<Text text="{OraFine}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{Rip}" editable="false" visible="false"/>
+								<Text text="{Rip}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{Causa}" editable="false" visible="false"/>
+								<Text text="{Causa}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{RemotoOnSite}" editable="false" visible="false"/>
+								<Text text="{RemotoOnSite}" visible="true"/>
+							</HBox>
+							<HBox>
+								<Input type="Text" value="{Status}" editable="false" visible="false"/>
+								<Text text="{Status}" visible="true"/>
+							</HBox>
+							<ToggleButton  icon="sap-icon://edit" press="onEdit"/>
+							<Button icon="sap-icon://delete" press="onDelete"/>
+							<!--	<Text text="{Data}"/>
+							<Text text="{Fer}"/>
+							<Text text="{Sab}"/>
+							<Text text="{Dom}"/>
+							<Text text="{n}"/>
+							<Text text="{Lpn}"/>
+							<Text text="{OraInizio}"/>
+							<Text text="{OraFine}"/>
+							<Text text="{Rip}"/>
+							<Text text="{Causa}"/>
+							<Text text="{RemotoOnSite}"/>
+							<Text text="{Status}"/>
+							<Button icon="sap-icon://edit" press="onEdit"/>
+							<Button icon="sap-icon://delete" press="onDelete"/>-->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Toolbar >
+				<ToolbarSpacer/>
+				<Button id="idButCreate" type="Accept" text="Insert" press="handleCreate"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

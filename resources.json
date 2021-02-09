@@ -1,0 +1,90 @@
+{
+    "resources": [
+        {
+            "name": "view/Unauthorized.view.xml"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "util/Formatter.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "controller/Unauthorized.controller.js"
+        },
+        {
+            "name": "controller/SchedaRepInt.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "util/Formatter-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Unauthorized-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/SchedaRepInt-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/App-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "view/SchedaRepInt.view.xml"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "fragment/TimeOutDiag.fragment.xml"
+        },
+        {
+            "name": "fragment/CambioResp.fragment.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "index.html"
+        }
+    ]
+}
